@@ -1,22 +1,36 @@
+import { useDispatch } from "react-redux";
+import { removePokemon } from "../../../apps/app/src/redux/pokemonSlice";
+
 export interface Pokemon {
   name: string;
   url: string;
 }
-[];
 
 interface ListProps {
   pokemonList: Pokemon[];
 }
 
 export const List: React.FC<ListProps> = ({ pokemonList }) => {
+  const dispatch = useDispatch();
+
+  const handleRemove = (name: string) => {
+    dispatch(removePokemon(name));
+  };
+
   return (
-    <ul className="grid">
-      {pokemonList.map((pokemon, index) => (
-        <li key={index} className="item">
-          {pokemon.name}
-        </li>
+    <div className="pokemon-list">
+      {pokemonList.map((pokemon) => (
+        <div key={pokemon.name} className="pokemon-card">
+          <div className="pokemon-name">{pokemon.name}</div>
+          <button
+            className="remove-btn"
+            onClick={() => handleRemove(pokemon.name)}
+          >
+            Remove
+          </button>
+        </div>
       ))}
-    </ul>
+    </div>
   );
 };
 
