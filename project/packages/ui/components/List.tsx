@@ -10,9 +10,11 @@ interface ListProps {
 
 const List: React.FC<ListProps> = ({ pokemonList }) => {
   return (
-    <ul>
+    <ul className="grid">
       {pokemonList.map((pokemon, index) => (
-        <li key={index}>{pokemon.name}</li>
+        <li key={index} className="item">
+          {pokemon.name}
+        </li>
       ))}
     </ul>
   );
