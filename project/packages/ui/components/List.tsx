@@ -8,7 +8,7 @@ interface ListProps {
   pokemonList: Pokemon[];
 }
 
-const List: React.FC<ListProps> = ({ pokemonList }) => {
+export const List: React.FC<ListProps> = ({ pokemonList }) => {
   return (
     <ul className="grid">
       {pokemonList.map((pokemon, index) => (
