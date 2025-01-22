@@ -13,7 +13,7 @@ const App = () => {
         const pokemonNames = data.results.map((pokemon: { name: string }) => pokemon.name);
         setPokemonList(pokemonNames);
       } catch (error) {
-        console.error(error);
+        console.error(error);//for error
       }
     };
 
